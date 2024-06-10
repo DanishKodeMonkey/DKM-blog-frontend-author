@@ -1,0 +1,17 @@
+/* Tailwind */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#navbar .active{
+    @apply bg-teal-300 hover:bg-teal-400 text-black font-bold py-2 px-4 rounded-t-2xl transition-colors duration-100 ease-in-out;
+}
+
+
+.form-layer{
+    @apply block text-sm font-medium text-gray-700
+}
+.form-input{
+    @apply mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm
+}
