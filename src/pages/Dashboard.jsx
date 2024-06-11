@@ -1,4 +1,4 @@
-function Home() {
+function Dashboard() {
     return (
         <div className='w-full max-w-5xl bg-white'>
             <div className='text-center py-10 '>
@@ -9,4 +9,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Dashboard;
