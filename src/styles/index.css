@@ -15,3 +15,7 @@
 .form-input{
     @apply mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm
 }
+
+.banner{
+    @apply bg-gradient-to-r from-slate-200 from-5% via-slate-400 via-45% to-slate-200 to-95% text-center w-screen border-t-4 border-teal-200
+}

@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <div className='bg-gradient-to-r from-slate-200 from-0% via-slate-400 to-slate-200 to-100% text-center w-screen border-t-4 border-teal-200'>
+        <div className='banner'>
             <p>
                 By danishKodeMonkey@
                 <a href='https://github.com/DanishKodeMonkey'>GitHub.com</a>
