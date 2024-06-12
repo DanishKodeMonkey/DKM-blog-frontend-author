@@ -3,9 +3,16 @@ import AuthContext from '../AuthContext';
 import { fetchAllUsers, fetchAllBlogPosts, fetchAllComments } from '../api';
 // custom fetch handler hook, accepts API function and returns data/loading/error
 import useFetch from '../hooks/useFetch';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleUserClick = (userId) => {
+        console.log('handleUserClicked, going to userId', userId);
+        navigate(`users/${userId}`);
+    };
 
     // use custom fetch handler hook to fetch data
     const {
@@ -49,6 +56,9 @@ function Dashboard() {
                                             <li
                                                 className='card'
                                                 key={user._id}
+                                                onClick={() =>
+                                                    handleUserClick(user._id)
+                                                }
                                             >
                                                 <p className='card-title'>
                                                     {user.username}
