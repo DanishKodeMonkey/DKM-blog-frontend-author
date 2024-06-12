@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
 import { fetchCurrentUser } from './api';
-import { redirect } from 'react-router-dom';
+
 // Context handler wrapper for passing auth tokens between routing in the app
 const AuthContext = createContext();
 
