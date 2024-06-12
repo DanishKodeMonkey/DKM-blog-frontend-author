@@ -44,6 +44,27 @@ export const fetchAllBlogPosts = async () => {
     }
 };
 
+// fetch post by Id
+export const fetchPostById = async (postId) => {
+    console.warn('fetchPost triggered ---');
+    try {
+        const response = await fetch(`${API_URL}/blog/posts/${postId}`, {
+            headers: {
+                ...getAuthHeaders(),
+                'Content-Type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            console.error('Failed to fetch post...');
+        }
+        console.log('Response valid, jsonifying...');
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching post', error);
+        throw error;
+    }
+};
+
 /// COMMENTS ///
 
 // Fetch all comments
@@ -67,7 +88,52 @@ export const fetchAllComments = async () => {
     }
 };
 
+// fetch specific comment from post
+export const fetchCommentById = async (postId, commentId) => {
+    console.warn('fetchComment triggered ---');
+    try {
+        const response = await fetch(
+            `${API_URL}/blog/posts/${postId}/comments/${commentId}`,
+            {
+                headers: {
+                    ...getAuthHeaders(),
+                    'content-type': 'application/json',
+                },
+            }
+        );
+        if (!response.ok) {
+            console.error('fetchComment fetch failed');
+            throw new Error('fetchComment fetch failed');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error: fetchComment failed');
+        throw error;
+    }
+};
+
 /// USERS ///
+
+// fetch user by Id
+export const fetchUserById = async (userId) => {
+    console.warn('fetchUser triggered ---');
+    try {
+        const response = await fetch(`${API_URL}/user/${userId}`, {
+            headers: {
+                ...getAuthHeaders(),
+                'Content-Type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            console.error('Failed to fetch user...');
+        }
+        console.log('Response valid, jsonifying...');
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching user', error);
+        throw error;
+    }
+};
 
 // Fetch all users
 export const fetchAllUsers = async () => {
