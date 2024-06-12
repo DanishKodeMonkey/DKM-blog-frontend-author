@@ -31,6 +31,7 @@ const getUserIdFromToken = () => {
 /// BLOG POSTS ///
 // fetch all blog posts
 export const fetchAllBlogPosts = async () => {
+    console.warn('fetchAllBlogPosts triggere ---');
     try {
         const response = await fetch(`${API_URL}/blog/posts`);
         if (!response.ok) {
@@ -43,7 +44,52 @@ export const fetchAllBlogPosts = async () => {
     }
 };
 
+/// COMMENTS ///
+
+// Fetch all comments
+export const fetchAllComments = async () => {
+    console.warn('fetchAllComments triggered ---');
+    try {
+        const response = await fetch(`${API_URL}/blog/comments`, {
+            headers: {
+                ...getAuthHeaders(),
+                'Content-type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            console.error('fetchAllComments fetch failed');
+            throw new Error('fetchAllComments fetch failed');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error: fetchAllComments fetch failed');
+        throw error;
+    }
+};
+
 /// USERS ///
+
+// Fetch all users
+export const fetchAllUsers = async () => {
+    console.warn('fetcHAllUsers triggered ---');
+    try {
+        const response = await fetch(`${API_URL}/users`, {
+            headers: {
+                ...getAuthHeaders(),
+                'Content-Type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            console.error('Failed to fetch all users');
+        }
+        console.log('Response valid, jsonifying...');
+        return await response.json();
+    } catch (error) {
+        console.error('An error has occured fetching all users: ', error);
+        throw error;
+    }
+};
+
 // Sign up new user
 
 export const createUser = async (user) => {
