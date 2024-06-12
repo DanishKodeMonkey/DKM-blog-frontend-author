@@ -17,5 +17,28 @@
 }
 
 .banner{
-    @apply bg-gradient-to-r from-slate-200 from-5% via-slate-400 via-45% to-slate-200 to-95% text-center w-screen border-t-4 border-teal-200
+    @apply bg-gradient-to-r from-slate-200 from-5% via-slate-400 via-45% to-slate-200 to-95% text-center w-screen border-t-4 border-b-2 border-slate-100 py-1
+}
+
+.card-container{
+    @apply text-center
+}
+
+.card{
+    @apply mt-2 mb-4 p-2 border border-cyan-500 rounded-lg bg-slate-300 w-full
+}
+
+.card-header{
+    @apply text-xs text-slate-500 underline
+}
+
+.card-title{
+    @apply text-xl font-semibold
+}
+
+.card-text{
+    @apply mt-2 mb-4
+}
+.faded{
+    @apply text-sm text-slate-800
 }
