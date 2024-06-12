@@ -7,6 +7,7 @@ import Posts from '../components/Posts';
 import CreatePost from '../components/createPost';
 import Users from '../components/Users';
 import SignIn from '../pages/SignIn';
+import UserDetailPage from '../pages/UserDetails';
 
 const routes = [
     {
@@ -47,6 +48,16 @@ const routes = [
                                 <Users />
                             </ProtectedRoute>
                         ),
+                        children: [
+                            {
+                                path: ':userId',
+                                element: (
+                                    <ProtectedRoute>
+                                        <UserDetailPage />
+                                    </ProtectedRoute>
+                                ),
+                            },
+                        ],
                     },
                 ],
             },
