@@ -5,9 +5,8 @@ import ErrorPage from '../pages/ErrorPage';
 import Dashboard from '../pages/Dashboard';
 import Posts from '../pages/Posts';
 import Users from '../pages/Users';
+import Comments from '../pages/Comments';
 import SignIn from '../pages/SignIn';
-import UserDetailPage from '../components/UserDetails';
-import PostDetailPage from '../components/PostDetails';
 
 const routes = [
     {
@@ -40,6 +39,14 @@ const routes = [
                 element: (
                     <ProtectedRoute>
                         <Posts />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: 'comments/:postId/:commentId',
+                element: (
+                    <ProtectedRoute>
+                        <Comments />
                     </ProtectedRoute>
                 ),
             },

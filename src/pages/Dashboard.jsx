@@ -17,6 +17,12 @@ function Dashboard() {
         console.log(`handlePostClick, going to post with postId`, postId);
         navigate(`posts/${postId}`);
     };
+    const handleCommentClick = (commentId, postId) => {
+        console.log(
+            `handleCommentClick triggered with postId ${postId} and commentId ${commentId}`
+        );
+        navigate(`comments/${postId}/${commentId}`);
+    };
 
     // use custom fetch handler hook to fetch data
     const {
@@ -126,6 +132,12 @@ function Dashboard() {
                                             <li
                                                 className='card'
                                                 key={comment._id}
+                                                onClick={() =>
+                                                    handleCommentClick(
+                                                        comment._id,
+                                                        comment.post._id
+                                                    )
+                                                }
                                             >
                                                 <h4 className='card-header'>
                                                     from post:
