@@ -3,12 +3,23 @@ import { Navigate } from 'react-router-dom';
 import AuthContext from '../AuthContext';
 
 const ProtectedRoute = ({ children }) => {
-    const { user } = useContext(AuthContext);
-    console.warn('Protected route hit by user ', user);
-    if (!user || user == null || user.membership !== 'Author') {
-        return <Navigate to='/signin' />;
+    console.warn('Trying to access protected route');
+    const { isAuthenticated, isAuthor, loading } = useContext(AuthContext);
+
+    if (loading) {
+        console.log('Loading...', loading);
+        return <p>Loading...</p>;
     }
 
+    if (!isAuthenticated || !isAuthor) {
+        console.warn(
+            'User is not authenticated or author',
+            isAuthenticated,
+            isAuthor
+        );
+        return <Navigate to='/signin' />;
+    }
+    console.log('User succesfully authenticated', isAuthenticated, isAuthor);
     return children;
 };
 
