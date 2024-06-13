@@ -118,7 +118,7 @@ export const fetchCommentById = async (postId, commentId) => {
 export const fetchUserById = async (userId) => {
     console.warn('fetchUser triggered ---');
     try {
-        const response = await fetch(`${API_URL}/user/${userId}`, {
+        const response = await fetch(`${API_URL}/users/${userId}`, {
             headers: {
                 ...getAuthHeaders(),
                 'Content-Type': 'application/json',
