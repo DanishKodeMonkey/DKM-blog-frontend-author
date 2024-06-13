@@ -19,23 +19,30 @@ function CommentDetailPage({ postId, commentId }) {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
-            <Link to={'/'}>Return</Link>
-            <div>
-                <h1>From post:</h1>
-                <p>{comment.post.title}</p>
+        <div className='detail-page-container'>
+            <Link
+                className='return-link'
+                to={'/'}
+            >
+                Return
+            </Link>
+            <div className='detail-container'>
+                <h1 className='detail-title'>From post:</h1>
+                <p className='detail-content'>{comment.post.title}</p>
             </div>
-            <div>
-                <h1>Author:</h1>
-                <p>{comment.author.username}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Author:</h1>
+                <p className='detail-content'>{comment.author.username}</p>
             </div>
-            <div>
-                <h1>Content:</h1>
-                <p>{comment.text}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Content:</h1>
+                <p className='detail-content'>{comment.text}</p>
             </div>
-            <div>
-                <h1>timestamp:</h1>
-                <p> {new Date(comment.timestamp).toLocaleString()}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>timestamp:</h1>
+                <p className='detail-content faded'>
+                    {new Date(comment.timestamp).toLocaleString()}
+                </p>
             </div>
         </div>
     );

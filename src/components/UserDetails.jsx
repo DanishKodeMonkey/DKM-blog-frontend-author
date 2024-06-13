@@ -15,58 +15,73 @@ function UserDetailPage({ userId }) {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
-            <Link to={'/'}>Return</Link>
-            <div>
-                <h1>Username:</h1>
-                <p>{user.username}</p>
+        <div className='detail-page-container'>
+            <Link
+                className='return-link'
+                to={'/'}
+            >
+                Return
+            </Link>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Username:</h1>
+                <p className='detail-content'>{user.username}</p>
             </div>
-            <div>
-                <h1>First name:</h1>
-                <p>{user.first_name}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>First name:</h1>
+                <p className='detail-content'>{user.first_name}</p>
             </div>
-            <div>
-                <h1>Last name:</h1>
-                <p>{user.last_name}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Last name:</h1>
+                <p className='detail-content'>{user.last_name}</p>
             </div>
-            <div>
-                <h1>Email:</h1>
-                <p>{user.email}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Email:</h1>
+                <p className='detail-content'>{user.email}</p>
             </div>
-            <div>
-                <h1>Membership:</h1>
-                <p>{user.membership}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Membership:</h1>
+                <p className='detail-content'>{user.membership}</p>
             </div>
-            <div>
-                <h1>Posts:</h1>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Posts:</h1>
                 {user.posts && user.posts.length > 0 ? (
                     user.posts.map((post) => (
-                        <div key={post._id}>
-                            <p>Title: {post.title}</p>
-                            <p>
+                        <div
+                            key={post._id}
+                            className='detail-map-section'
+                        >
+                            <p className='detail-map-text'>
+                                Title: {post.title}
+                            </p>
+                            <p className='detail-map-content faded'>
                                 Timestamp:
                                 {new Date(post.timestamp).toLocaleString()}
                             </p>
                         </div>
                     ))
                 ) : (
-                    <p>No posts available.</p>
+                    <p className='no-map'>No posts available.</p>
                 )}
             </div>
-            <div>
-                <h1>Comments:</h1>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Comments:</h1>
                 {user.comments && user.comments.length > 0 ? (
                     user.comments.map((comment) => (
-                        <div key={comment._id}>
-                            <p>Text: {comment.text}</p>
-                            <p>
+                        <div
+                            key={comment._id}
+                            className='detail-map-section'
+                        >
+                            <p className='detail-map-text'>
+                                Text: {comment.text}
+                            </p>
+                            <p className='detail-map-text faded'>
                                 Timestamp:
                                 {new Date(comment.timestamp).toLocaleString()}
                             </p>
                         </div>
                     ))
                 ) : (
-                    <p>No Comments available.</p>
+                    <p className='no-map'>No Comments available.</p>
                 )}
             </div>
         </div>

@@ -8,6 +8,7 @@
     @apply bg-teal-300 hover:bg-teal-400 text-black font-bold py-2 px-4 rounded-t-2xl transition-colors duration-100 ease-in-out;
 }
 
+/* signup */
 
 .form-layer{
     @apply block text-sm font-medium text-gray-700
@@ -20,6 +21,8 @@
     @apply bg-gradient-to-r from-slate-200 from-5% via-slate-400 via-45% to-slate-200 to-95% text-center w-screen border-t-4 border-b-2 border-slate-100 py-1
 }
 
+
+/* Dashboard */
 .card-container{
     @apply text-center
 }
@@ -41,4 +44,68 @@
 }
 .faded{
     @apply text-sm text-slate-800
+}
+
+/* Content details rules */
+
+.detail-page-container {
+    @apply max-w-5xl mx-auto px-4 py-8 bg-slate-300 border border-cyan-500;
+}
+
+.detail-page-section{
+    @apply flex flex-col
+}
+.return-link {
+    @apply block mb-4 text-lg bg-teal-500 text-slate-100 hover:text-teal-700 rounded-lg;
+}
+
+.detail-container {
+    @apply bg-gray-100 shadow-md border border-slate-400 rounded-lg overflow-hidden;
+}
+
+.detail-header {
+    @apply p-4;
+}
+
+.detail-title {
+    @apply text-3xl font-bold mb-4;
+}
+
+.faded {
+    @apply text-gray-600 mb-2;
+}
+
+.detail-content {
+    @apply text-gray-700;
+}
+
+.detail-map-container{
+    @apply flex justify-around
+}
+.detail-map-section {
+    @apply border border-gray-400 mt-4 p-4 bg-slate-200;
+}
+
+.detail-map-title {
+    @apply text-xl font-bold mb-2;
+}
+
+.detail-map-item {
+    @apply border-b border-gray-200 py-4;
+}
+
+.detail-map-author {
+    @apply text-gray-600;
+}
+
+.detail-map-text {
+    @apply text-gray-700;
+}
+
+.detail-map-timestamp {
+    @apply text-gray-600;
+}
+
+.no-map {
+    @apply text-gray-500;
 }

@@ -19,44 +19,64 @@ function PostDetailPage({ postId }) {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
-            <Link to={'/'}>Return</Link>
-            <div>
-                <h1>Title</h1>
-                <p>{post.title}</p>
+        <div className='detail-page-container'>
+            <Link
+                className='return-link'
+                to={'/'}
+            >
+                Return
+            </Link>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Title</h1>
+                <p className='detail-content'>{post.title}</p>
             </div>
-            <div>
-                <h1>Author:</h1>
-                <p>{post.author.username}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Author:</h1>
+                <p className='detail-content'>{post.author.username}</p>
             </div>
-            <div>
-                <h1>Published:</h1>
-                <p>{post.published}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Published:</h1>
+                <p className='detail-content'>
+                    {post.published ? 'Published' : 'Not published'}
+                </p>
             </div>
-            <div>
-                <h1>Content:</h1>
-                <p>{post.text}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>Content:</h1>
+                <p className='detail-content'>{post.text}</p>
             </div>
-            <div>
-                <h1>timestamp:</h1>
-                <p> {new Date(post.timestamp).toLocaleString()}</p>
+            <div className='detail-container'>
+                <h1 className='detail-title'>timestamp:</h1>
+                <p className='detail-content faded'>
+                    {new Date(post.timestamp).toLocaleString()}
+                </p>
             </div>
-            <div>
-                <h1>Comments:</h1>
-                {post.comments && post.comments.length > 0 ? (
-                    post.comments.map((comment) => (
-                        <div key={comment._id}>
-                            <h2>From: {comment.author.username}</h2>
-                            <p>Text: {comment.text}</p>
-                            <p>
-                                Timestamp:
-                                {new Date(comment.timestamp).toLocaleString()}
-                            </p>
-                        </div>
-                    ))
-                ) : (
-                    <p>No Comments available.</p>
-                )}
+            <div className='detail-container'>
+                <h1 className='detail-title'>Comments:</h1>
+                <div className='detail-map-container'>
+                    {post.comments && post.comments.length > 0 ? (
+                        post.comments.map((comment) => (
+                            <div
+                                key={comment._id}
+                                className='detail-map-section'
+                            >
+                                <h2 className='detail-map-title'>
+                                    From: {comment.author.username}
+                                </h2>
+                                <p className='detail-map-text'>
+                                    Text: {comment.text}
+                                </p>
+                                <p className='detail-map-text faded'>
+                                    Timestamp:
+                                    {new Date(
+                                        comment.timestamp
+                                    ).toLocaleString()}
+                                </p>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='no-map'>No Comments available.</p>
+                    )}
+                </div>
             </div>
         </div>
     );
