@@ -3,11 +3,11 @@ import ProtectedRoute from './ProtectedRoutes';
 import App from '../App';
 import ErrorPage from '../pages/ErrorPage';
 import Dashboard from '../pages/Dashboard';
-import Posts from '../components/Posts';
+import Posts from '../pages/Posts';
 import CreatePost from '../components/createPost';
-import Users from '../components/Users';
+import Users from '../pages/Users';
 import SignIn from '../pages/SignIn';
-import UserDetailPage from '../pages/UserDetails';
+import UserDetailPage from '../components/UserDetails';
 
 const routes = [
     {
@@ -41,23 +41,23 @@ const routes = [
                             },
                         ],
                     },
+                ],
+            },
+            {
+                path: 'users',
+                element: (
+                    <ProtectedRoute>
+                        <Users />
+                    </ProtectedRoute>
+                ),
+                children: [
                     {
-                        path: 'users',
+                        path: ':userId',
                         element: (
                             <ProtectedRoute>
-                                <Users />
+                                <UserDetailPage />
                             </ProtectedRoute>
                         ),
-                        children: [
-                            {
-                                path: ':userId',
-                                element: (
-                                    <ProtectedRoute>
-                                        <UserDetailPage />
-                                    </ProtectedRoute>
-                                ),
-                            },
-                        ],
                     },
                 ],
             },

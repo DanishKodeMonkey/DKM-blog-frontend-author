@@ -10,6 +10,7 @@ const useFetch = (fetchFunction) => {
             setLoading(true);
             try {
                 const result = await fetchFunction();
+                console.log(result);
                 setData(result);
             } catch (error) {
                 console.error('Error fetching data: ', error);
