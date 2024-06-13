@@ -4,15 +4,19 @@ import App from '../App';
 import ErrorPage from '../pages/ErrorPage';
 import Dashboard from '../pages/Dashboard';
 import Posts from '../pages/Posts';
-import CreatePost from '../components/createPost';
 import Users from '../pages/Users';
 import SignIn from '../pages/SignIn';
 import UserDetailPage from '../components/UserDetails';
+import PostDetailPage from '../components/PostDetails';
 
 const routes = [
     {
         path: '/',
-        element: <App />,
+        element: (
+            <ProtectedRoute>
+                <App />
+            </ProtectedRoute>
+        ),
         errorElement: <ErrorPage />,
         children: [
             {
@@ -22,44 +26,22 @@ const routes = [
                         <Dashboard />
                     </ProtectedRoute>
                 ),
-                children: [
-                    {
-                        path: 'posts',
-                        element: (
-                            <ProtectedRoute>
-                                <Posts />
-                            </ProtectedRoute>
-                        ),
-                        children: [
-                            {
-                                path: 'create-post',
-                                element: (
-                                    <ProtectedRoute>
-                                        <CreatePost />
-                                    </ProtectedRoute>
-                                ),
-                            },
-                        ],
-                    },
-                ],
             },
             {
-                path: 'users',
+                path: 'users/:userId',
                 element: (
                     <ProtectedRoute>
                         <Users />
                     </ProtectedRoute>
                 ),
-                children: [
-                    {
-                        path: ':userId',
-                        element: (
-                            <ProtectedRoute>
-                                <UserDetailPage />
-                            </ProtectedRoute>
-                        ),
-                    },
-                ],
+            },
+            {
+                path: 'posts/:postId',
+                element: (
+                    <ProtectedRoute>
+                        <Posts />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },
