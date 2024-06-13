@@ -1,9 +1,19 @@
+import { useParams } from 'react-router-dom';
+import PostDetailPage from '../components/PostDetails';
+
 function Posts() {
+    const { postId } = useParams();
+
     return (
         <div className='w-full max-w-5xl bg-white'>
             <div className='text-center py-10 '>
-                <h1 className='text-3xl font-bold underline'>Hello world</h1>
-                <h2>Welcome to the danish kode monkey author Posts</h2>
+                {postId ? (
+                    <PostDetailPage postId={postId} />
+                ) : (
+                    <div>
+                        <p>No post selected...</p>
+                    </div>
+                )}
             </div>
         </div>
     );
