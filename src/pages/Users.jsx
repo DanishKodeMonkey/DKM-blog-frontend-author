@@ -11,8 +11,7 @@ function Users() {
                     <UserDetailPage userId={userId} />
                 ) : (
                     <div>
-                        <h1 className='text-3xl font-bold underline'>Users</h1>
-                        <h2>No user selected...</h2>
+                        <p>No users selected...</p>
                     </div>
                 )}
             </div>

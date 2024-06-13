@@ -48,12 +48,7 @@ function Dashboard() {
                     <h2 className='text-xl bg-slate-200'>Overview:</h2>
                     <div className='flex h-full'>
                         <div className='flex flex-grow flex-col border-2 border-solid border-sky-200 px-4'>
-                            <h3
-                                className='text-lg border-b-2 mb-2'
-                                onClick={() => handleUserClick()}
-                            >
-                                Users
-                            </h3>
+                            <h3 className='text-lg border-b-2 mb-2'>Users</h3>
                             <div className='card-container'>
                                 {loadingUsers ? (
                                     <p>Loading users...</p>
