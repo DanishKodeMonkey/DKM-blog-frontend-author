@@ -9,13 +9,13 @@ function Dashboard() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleGetUserClick = (userId) => {
+    const handleUserClick = (userId) => {
         console.log('handleUserClicked, going to userId', userId);
         navigate(`users/${userId}`);
     };
-    const handleUserClick = () => {
-        console.log(`HandleuserClick, going to Users list`);
-        navigate(`/users`);
+    const handlePostClick = (postId) => {
+        console.log(`handlePostClick, going to post with postId`, postId);
+        navigate(`posts/${postId}`);
     };
 
     // use custom fetch handler hook to fetch data
@@ -61,7 +61,7 @@ function Dashboard() {
                                                 className='card'
                                                 key={user._id}
                                                 onClick={() =>
-                                                    handleGetUserClick(user._id)
+                                                    handleUserClick(user._id)
                                                 }
                                             >
                                                 <p className='card-title'>
@@ -86,6 +86,9 @@ function Dashboard() {
                                             <li
                                                 className='card'
                                                 key={post._id}
+                                                onClick={() =>
+                                                    handlePostClick(post._id)
+                                                }
                                             >
                                                 <h4 className='card-header'>
                                                     title
