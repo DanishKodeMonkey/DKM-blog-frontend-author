@@ -1,17 +1,22 @@
 import useFetch from '../hooks/useFetch';
 import { fetchUserById } from '../api';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 function UserDetailPage({ userId }) {
-    const fetchFunction = useCallback(() => fetchUserById(userId), [userId]);
+    const fetchUserFunction = useCallback(
+        () => fetchUserById(userId),
+        [userId]
+    );
 
-    const { data: user, loading, error } = useFetch(fetchFunction);
+    const { data: user, loading, error } = useFetch(fetchUserFunction);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <div>
+            <Link to={'/'}>Return</Link>
             <div>
                 <h1>Username:</h1>
                 <p>{user.username}</p>
