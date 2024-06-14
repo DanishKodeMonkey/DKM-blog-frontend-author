@@ -7,6 +7,7 @@ import Posts from '../pages/Posts';
 import Users from '../pages/Users';
 import Comments from '../pages/Comments';
 import SignIn from '../pages/SignIn';
+import CreatePost from '../components/CreatePost';
 
 const routes = [
     {
@@ -35,12 +36,25 @@ const routes = [
                 ),
             },
             {
-                path: 'posts/:postId',
-                element: (
-                    <ProtectedRoute>
-                        <Posts />
-                    </ProtectedRoute>
-                ),
+                path: 'posts',
+                children: [
+                    {
+                        path: ':postId',
+                        element: (
+                            <ProtectedRoute>
+                                <Posts />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
+                        path: 'new-post',
+                        element: (
+                            <ProtectedRoute>
+                                <CreatePost />
+                            </ProtectedRoute>
+                        ),
+                    },
+                ],
             },
             {
                 path: 'comments/:postId/:commentId',

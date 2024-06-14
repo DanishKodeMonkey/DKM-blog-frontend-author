@@ -4,6 +4,7 @@ import { fetchAllUsers, fetchAllBlogPosts, fetchAllComments } from '../api';
 // custom fetch handler hook, accepts API function and returns data/loading/error
 import useFetch from '../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Dashboard() {
     const { user } = useContext(AuthContext);
@@ -44,6 +45,12 @@ function Dashboard() {
     return (
         <div className='w-full max-w-5xl bg-white'>
             <div className='text-center py-10 '>
+                <Link
+                    to={'/posts/new-post'}
+                    className='bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out'
+                >
+                    Create New Post
+                </Link>
                 <div className='mb-3'>
                     <h1 className='text-3xl font-bold underline'>
                         Hello {user.username}
