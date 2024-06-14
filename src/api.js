@@ -65,6 +65,26 @@ export const fetchPostById = async (postId) => {
     }
 };
 
+export const createPost = async (post) => {
+    try {
+        const response = await fetch(`${API_URL}/blog/posts`, {
+            method: 'POST',
+            headers: {
+                ...getAuthHeaders(),
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post),
+        });
+        if (!response.ok) {
+            throw new Error('Failed to create post');
+        }
+        return await response.text();
+    } catch (error) {
+        console.error('Error creating post; ', error);
+        throw error;
+    }
+};
+
 /// COMMENTS ///
 
 // Fetch all comments
