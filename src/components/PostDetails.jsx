@@ -1,16 +1,31 @@
 import useFetch from '../hooks/useFetch';
 import { fetchPostById } from '../api';
 import { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { deletePost } from '../api';
+import parse from 'html-react-parser';
 
 function PostDetailPage({ postId }) {
     console.warn('WELCOME TO THE POST DETAIL PAGE');
 
+    const navigate = useNavigate();
     const fetchPostFunction = useCallback(
         () => fetchPostById(postId),
         [postId]
     );
 
+    const handleDelete = async () => {
+        if (window.confirm('Are you sure you want to delete this post?')) {
+            try {
+                await deletePost(postId);
+                alert('The post has been successfully deleted.');
+                navigate('/');
+            } catch (error) {
+                console.error('An error occured during deletion', error);
+                alert('Failed to delete post. Please try again.');
+            }
+        }
+    };
     console.log('fetch function: ', fetchPostFunction);
     const { data: post, loading, error } = useFetch(fetchPostFunction);
     console.log('Post ', post);
@@ -41,7 +56,7 @@ function PostDetailPage({ postId }) {
                     </p>
                 </div>
                 <hr />
-                <p className='post-detail-content'>{post.text}</p>
+                <p className='post-detail-content'>{parse(post.text)}</p>
                 <hr />
                 <h1 className='post-comments-title'>Comments:</h1>
                 <div className='post-comments-container'>
@@ -70,6 +85,12 @@ function PostDetailPage({ postId }) {
                     )}
                 </div>
             </div>
+            <button
+                onClick={handleDelete}
+                className='delete-btn'
+            >
+                Delete Post
+            </button>
         </div>
     );
 }
