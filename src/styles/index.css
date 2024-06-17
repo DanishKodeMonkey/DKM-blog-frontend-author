@@ -23,8 +23,43 @@
 
 
 /* Dashboard */
+
+.main-container{
+   @apply flex flex-col bg-white py-10
+}
+
+.dashboard-container{
+    @apply text-center flex flex-col
+}
+.greeter-container{
+    @apply mb-4
+}
+.greeter-header{ 
+    @apply text-3xl font-bold underline
+}
+.dashboard-button-container{
+    @apply mb-4
+}
+.dashboard-button{
+    @apply bg-teal-600 hover:bg-teal-700 text-white py-2 px-10 rounded-md shadow-sm transition duration-300 ease-in-out
+}
+.dashboard-overview-container{
+    @apply border-solid border-2 rounded-lg bg-slate-100 border-sky-500 mx-10
+}
+.dashboard-overview-header{
+    @apply text-xl bg-slate-200
+}
+.dashboard-components-container{
+    @apply flex
+}
+.dashboard-component{
+    @apply flex-grow border-2 max-h-full
+}
+.dashboard-component-header{
+    @apply text-lg border-b-2 mb-2
+}
 .card-container{
-    @apply text-center
+    @apply text-center  overflow-y-scroll border-solid border-sky-200 px-4 h-[calc(100vh-420px)]
 }
 
 .card{
@@ -46,10 +81,69 @@
     @apply text-sm text-slate-800
 }
 
+/* Post details rules */
+.post-detail-page-container {
+    @apply px-4 py-8 bg-slate-300 border border-cyan-500 h-full;
+}
+
+.post-detail-container {
+    @apply py-8 bg-gray-100 shadow-md border border-slate-400 rounded-lg overflow-hidden;
+}
+
+.post-detail-header{
+    @apply flex justify-center
+}
+.post-detail-header-item {
+    @apply faded mx-5
+}
+
+.post-detail-title {
+    @apply text-2xl font-bold mb-4;
+}
+
+.faded {
+    @apply text-gray-600 mb-2;
+}
+
+.post-detail-content {
+    @apply text-gray-700 py-5;
+}
+
+.post-comments-container{
+    @apply flex justify-around
+}
+.post-comments-section {
+    @apply border border-gray-400 mt-4 p-4 bg-slate-200;
+}
+
+.post-comments-title {
+    @apply text-xl font-bold mb-2;
+}
+
+.post-comments-item {
+    @apply border-b border-gray-200 py-4;
+}
+
+.post-comments-author {
+    @apply text-gray-600;
+}
+
+.post-comments-text {
+    @apply text-gray-700;
+}
+
+.post-comments-timestamp {
+    @apply text-gray-600;
+}
+
+.no-map {
+    @apply text-gray-500;
+}
+
 /* Content details rules */
 
 .detail-page-container {
-    @apply max-w-5xl mx-auto px-4 py-8 bg-slate-300 border border-cyan-500;
+    @apply max-w-5xl mx-auto px-4 py-8 bg-slate-300 border border-cyan-500 h-full;
 }
 
 .detail-page-section{
@@ -68,7 +162,7 @@
 }
 
 .detail-title {
-    @apply text-3xl font-bold mb-4;
+    @apply text-xl font-bold mb-4;
 }
 
 .faded {
