@@ -19,53 +19,45 @@ function PostDetailPage({ postId }) {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className='detail-page-container'>
+        <div className='post-detail-page-container'>
             <Link
                 className='return-link'
                 to={'/'}
             >
                 Return
             </Link>
-            <div className='detail-container'>
-                <h1 className='detail-title'>Title</h1>
-                <p className='detail-content'>{post.title}</p>
-            </div>
-            <div className='detail-container'>
-                <h1 className='detail-title'>Author:</h1>
-                <p className='detail-content'>{post.author.username}</p>
-            </div>
-            <div className='detail-container'>
-                <h1 className='detail-title'>Published:</h1>
-                <p className='detail-content'>
-                    {post.published ? 'Published' : 'Not published'}
-                </p>
-            </div>
-            <div className='detail-container'>
-                <h1 className='detail-title'>Content:</h1>
-                <p className='detail-content'>{post.text}</p>
-            </div>
-            <div className='detail-container'>
-                <h1 className='detail-title'>timestamp:</h1>
-                <p className='detail-content faded'>
-                    {new Date(post.timestamp).toLocaleString()}
-                </p>
-            </div>
-            <div className='detail-container'>
-                <h1 className='detail-title'>Comments:</h1>
-                <div className='detail-map-container'>
+            <div className='post-detail-container'>
+                <p className='post-detail-title'>{post.title}</p>
+                <div className='post-detail-header'>
+                    <p className='post-detail-header-item'>
+                        {new Date(post.timestamp).toLocaleString()}
+                    </p>
+                    <p className='post-detail-header-item'>
+                        {post.author.username}
+                    </p>
+
+                    <p className='post-detail-header-item'>
+                        {post.published ? 'Published' : 'Not published'}
+                    </p>
+                </div>
+                <hr />
+                <p className='post-detail-content'>{post.text}</p>
+                <hr />
+                <h1 className='post-comments-title'>Comments:</h1>
+                <div className='post-comments-container'>
                     {post.comments && post.comments.length > 0 ? (
                         post.comments.map((comment) => (
                             <div
                                 key={comment._id}
-                                className='detail-map-section'
+                                className='post-comments-section'
                             >
-                                <h2 className='detail-map-title'>
+                                <h2 className='post-comments-title'>
                                     From: {comment.author.username}
                                 </h2>
-                                <p className='detail-map-text'>
+                                <p className='post-comments-text'>
                                     Text: {comment.text}
                                 </p>
-                                <p className='detail-map-text faded'>
+                                <p className='post-comments-text faded'>
                                     Timestamp:
                                     {new Date(
                                         comment.timestamp
