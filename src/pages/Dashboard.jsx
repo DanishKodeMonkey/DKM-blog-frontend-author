@@ -43,25 +43,27 @@ function Dashboard() {
     } = useFetch(fetchAllComments);
 
     return (
-        <div className='w-full max-w-5xl bg-white'>
-            <div className='text-center py-10 '>
-                <Link
-                    to={'/posts/new-post'}
-                    className='bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out'
-                >
-                    Create New Post
-                </Link>
-                <div className='mb-3'>
-                    <h1 className='text-3xl font-bold underline'>
-                        Hello {user.username}
-                    </h1>
+        <div className='main-container'>
+            <div className='dashboard-container'>
+                <div className='greeter-container'>
+                    <h1 className='greeter-header'>Hello {user.username}</h1>
                     <h2>Welcome to the danish kode monkey author Dashboard</h2>
                 </div>
-                <div className='flex flex-col border-solid border-2 rounded-lg bg-slate-100 border-sky-500 mx-10 h-96'>
-                    <h2 className='text-xl bg-slate-200'>Overview:</h2>
-                    <div className='flex h-full'>
-                        <div className='flex flex-grow flex-col border-2 border-solid border-sky-200 px-4'>
-                            <h3 className='text-lg border-b-2 mb-2'>Users</h3>
+                <div className='dashboard-button-container'>
+                    <Link
+                        to={'/posts/new-post'}
+                        className='dashboard-button'
+                    >
+                        Create New Post
+                    </Link>
+                </div>
+                <div className='dashboard-overview-container'>
+                    <h2 className='dashboard-overview-header'>Overview:</h2>
+                    <div className='dashboard-components-container'>
+                        <div className='dashboard-component'>
+                            <h3 className='dashboard-component-header'>
+                                Users
+                            </h3>
                             <div className='card-container'>
                                 {loadingUsers ? (
                                     <p>Loading users...</p>
@@ -86,8 +88,10 @@ function Dashboard() {
                                 )}
                             </div>
                         </div>
-                        <div className='flex flex-grow flex-col border-2 border-solid border-sky-200 px-4'>
-                            <h3 className='text-lg border-b-2 mb-2'>Posts</h3>
+                        <div className='dashboard-component'>
+                            <h3 className='dashboard-component-header'>
+                                Posts
+                            </h3>
                             <div className='card-container'>
                                 {loadingPosts ? (
                                     <p>Loading posts...</p>
@@ -124,8 +128,8 @@ function Dashboard() {
                                 )}
                             </div>
                         </div>
-                        <div className='flex flex-grow flex-col border-2 border-solid border-sky-200 px-4'>
-                            <h3 className='text-lg border-b-2 mb-2'>
+                        <div className='dashboard-component'>
+                            <h3 className='dashboard-component-header'>
                                 Comments
                             </h3>
                             <div className='card-container'>
