@@ -85,6 +85,25 @@ export const createPost = async (post) => {
     }
 };
 
+export const deletePost = async (postId) => {
+    try {
+        const response = await fetch(`${API_URL}/blog/posts/${postId}`, {
+            method: 'DELETE',
+            headers: {
+                ...getAuthHeaders(),
+                'Content-type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            console.error('Failed to delete post...');
+        }
+        console.log('Response valid, jsonifying...');
+        return await response.text();
+    } catch (error) {
+        throw new Error('Failed to delete post.');
+    }
+};
+
 /// COMMENTS ///
 
 // Fetch all comments
