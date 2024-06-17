@@ -3,6 +3,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import AuthContext from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../api';
+import { Link } from 'react-router-dom';
 
 const CreatePost = () => {
     const { user } = useContext(AuthContext);
@@ -37,7 +38,13 @@ const CreatePost = () => {
     };
 
     return (
-        <div className='max-w-5xl mx-auto px-4 py-8'>
+        <div className='max-w-5xl mx-auto px-4 py-8 bg-slate-200 rounded-lg'>
+            <Link
+                className='return-link text-center'
+                to={'/'}
+            >
+                Return
+            </Link>
             <h1 className='text-3xl font-bold mb-4'>Create New Post</h1>
             {error && <p className='text-red-500'>{error}</p>}
             <form onSubmit={handleSubmit}>

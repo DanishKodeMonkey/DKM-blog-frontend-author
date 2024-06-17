@@ -15,7 +15,7 @@ function UserDetailPage({ userId }) {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className='detail-page-container'>
+        <div className='detail-page-container h-full'>
             <Link
                 className='return-link'
                 to={'/'}

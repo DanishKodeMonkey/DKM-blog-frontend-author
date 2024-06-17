@@ -5,8 +5,8 @@ function Users() {
     const { userId } = useParams();
 
     return (
-        <div className='w-full max-w-5xl bg-white mx-auto'>
-            <div className='text-center h-full '>
+        <div className='w-full max-w-5xl bg-white mx-auto  h-full'>
+            <div className='text-center  h-full'>
                 {userId ? (
                     <UserDetailPage userId={userId} />
                 ) : (

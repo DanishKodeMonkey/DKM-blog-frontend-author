@@ -5,7 +5,7 @@ function Comments() {
     const { commentId } = useParams();
 
     return (
-        <div className='w-full max-w-5xl bg-white mx-auto'>
+        <div className='w-full max-w-5xl bg-white mx-auto  h-full'>
             <div className='text-center h-full'>
                 {commentId ? (
                     <CommentDetailPage commentId={commentId} />

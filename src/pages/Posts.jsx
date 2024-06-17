@@ -5,7 +5,7 @@ function Posts() {
     const { postId } = useParams();
 
     return (
-        <div className='w-full max-w-5xl bg-white h-full mx-auto'>
+        <div className='w-full max-w-5xl bg-white h-full mx-auto  h-full'>
             <div className='text-center h-full'>
                 {postId ? (
                     <PostDetailPage postId={postId} />
