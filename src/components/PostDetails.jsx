@@ -9,6 +9,7 @@ function PostDetailPage({ postId }) {
     console.warn('WELCOME TO THE POST DETAIL PAGE');
 
     const navigate = useNavigate();
+
     const fetchPostFunction = useCallback(
         () => fetchPostById(postId),
         [postId]
@@ -26,6 +27,11 @@ function PostDetailPage({ postId }) {
             }
         }
     };
+
+    const handleUpdate = () => {
+        navigate(`/posts/update-post/${postId}`);
+    };
+
     console.log('fetch function: ', fetchPostFunction);
     const { data: post, loading, error } = useFetch(fetchPostFunction);
     console.log('Post ', post);
@@ -85,6 +91,12 @@ function PostDetailPage({ postId }) {
                     )}
                 </div>
             </div>
+            <button
+                onClick={handleUpdate}
+                className='update-btn'
+            >
+                Update Post
+            </button>
             <button
                 onClick={handleDelete}
                 className='delete-btn'

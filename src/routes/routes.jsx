@@ -47,6 +47,14 @@ const routes = [
                         ),
                     },
                     {
+                        path: 'update-post/:postId',
+                        element: (
+                            <ProtectedRoute>
+                                <CreatePost />
+                            </ProtectedRoute>
+                        ),
+                    },
+                    {
                         path: 'new-post',
                         element: (
                             <ProtectedRoute>
