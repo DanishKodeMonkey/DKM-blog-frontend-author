@@ -104,6 +104,24 @@ export const deletePost = async (postId) => {
     }
 };
 
+export const editPost = async (postId, updatedPostData) => {
+    try {
+        const response = await fetch(`${API_URL}/blog/posts/${postId}`, {
+            method: 'PUT',
+            headers: {
+                ...getAuthHeaders(),
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedPostData),
+        });
+        if (!response.ok) {
+            console.error('Failed to update post...');
+        }
+    } catch (error) {
+        throw new Error('Failed to update post.');
+    }
+};
+
 /// COMMENTS ///
 
 // Fetch all comments
