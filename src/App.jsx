@@ -5,14 +5,14 @@ import './styles/index.css';
 
 function App() {
     return (
-        <div className='flex flex-col justify-between h-screen bg-slate-500'>
-            <header className='h-10 mb-7 my'>
+        <div className='flex flex-col h-screen bg-slate-500'>
+            <header>
                 <Header />
             </header>
-            <main className='flex-grow flex justify-center'>
+            <main className='container mx-auto  p-4 flex-grow'>
                 <Outlet />
             </main>
-            <footer className='h-12'>
+            <footer className='h-15'>
                 <Footer />
             </footer>
         </div>
