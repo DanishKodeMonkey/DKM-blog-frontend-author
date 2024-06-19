@@ -18,6 +18,11 @@
     @apply block mt-4 w-full text-lg bg-red-500 text-slate-900 hover:text-slate-100 hover:bg-red-800 rounded-lg
 }
 
+.update-btn{
+    @apply block mt-4 w-full text-lg bg-yellow-500 text-slate-900 hover:text-slate-100 hover:bg-yellow-800 rounded-lg
+
+}
+
 /* signup */
 
 .form-layer{
