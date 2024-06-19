@@ -168,6 +168,28 @@ export const fetchCommentById = async (postId, commentId) => {
         throw error;
     }
 };
+export const deleteComment = async (postId, commentId) => {
+    console.log('Trying to delete from postId ', postId, 'comment ', commentId);
+    try {
+        const response = await fetch(
+            `${API_URL}/blog/posts/${postId}/comments/${commentId}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    ...getAuthHeaders(),
+                    'Content-type': 'application/json',
+                },
+            }
+        );
+        if (!response.ok) {
+            console.error('Failed to delete comment...');
+        }
+        console.log('Response valid, jsonifying...');
+        return await response.text();
+    } catch (error) {
+        throw new Error('Failed to delete comment.');
+    }
+};
 
 /// USERS ///
 
