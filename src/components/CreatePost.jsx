@@ -55,7 +55,7 @@ const CreatePost = () => {
             title,
             text: content,
             published,
-            author: user._id || 'Anonymous',
+            author: user.username || 'Anonymous',
         };
         try {
             if (isEditing) {

@@ -53,9 +53,7 @@ function PostDetailPage({ postId }) {
                     <p className='post-detail-header-item'>
                         {new Date(post.timestamp).toLocaleString()}
                     </p>
-                    <p className='post-detail-header-item'>
-                        {post.author.username}
-                    </p>
+                    <p className='post-detail-header-item'>{post.author}</p>
 
                     <p className='post-detail-header-item'>
                         {post.published ? 'Published' : 'Not published'}
@@ -69,7 +67,7 @@ function PostDetailPage({ postId }) {
                     {post.comments && post.comments.length > 0 ? (
                         post.comments.map((comment) => (
                             <div
-                                key={comment._id}
+                                key={comment.id}
                                 className='post-comments-section'
                             >
                                 <h2 className='post-comments-title'>

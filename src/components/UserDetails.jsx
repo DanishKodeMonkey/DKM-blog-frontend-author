@@ -47,7 +47,7 @@ function UserDetailPage({ userId }) {
                 {user.posts && user.posts.length > 0 ? (
                     user.posts.map((post) => (
                         <div
-                            key={post._id}
+                            key={post.id}
                             className='detail-map-section'
                         >
                             <p className='detail-map-text'>
@@ -68,7 +68,7 @@ function UserDetailPage({ userId }) {
                 {user.comments && user.comments.length > 0 ? (
                     user.comments.map((comment) => (
                         <div
-                            key={comment._id}
+                            key={comment.id}
                             className='detail-map-section'
                         >
                             <p className='detail-map-text'>

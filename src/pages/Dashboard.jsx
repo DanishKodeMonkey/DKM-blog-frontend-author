@@ -74,9 +74,9 @@ function Dashboard() {
                                         {allUsers.map((user) => (
                                             <li
                                                 className='card'
-                                                key={user._id}
+                                                key={user.id}
                                                 onClick={() =>
-                                                    handleUserClick(user._id)
+                                                    handleUserClick(user.id)
                                                 }
                                             >
                                                 <p className='card-title'>
@@ -102,9 +102,9 @@ function Dashboard() {
                                         {allPosts.map((post) => (
                                             <li
                                                 className='card'
-                                                key={post._id}
+                                                key={post.id}
                                                 onClick={() =>
-                                                    handlePostClick(post._id)
+                                                    handlePostClick(post.id)
                                                 }
                                             >
                                                 <h4 className='card-header'>
@@ -142,11 +142,11 @@ function Dashboard() {
                                         {allComments.map((comment) => (
                                             <li
                                                 className='card'
-                                                key={comment._id}
+                                                key={comment.id}
                                                 onClick={() =>
                                                     handleCommentClick(
-                                                        comment._id,
-                                                        comment.post._id
+                                                        comment.id,
+                                                        comment.post.id
                                                     )
                                                 }
                                             >
